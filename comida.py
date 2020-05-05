@@ -1,10 +1,16 @@
 import tweepy
+import os
 
-auth = tweepy.OAuthHandler(
-"ZGbNYqljokyTIEQ6KgLdqSVIn", 
-"ZRWr5W9AovZX8YwsjFxCfqrM7n1NJGmCjvCR1KP3zDEXgFldIT")
+consumer_key="l1zfKK3iqXdXGtm1AaXp21Vg3"
+consumer_secret="w5PL9dxaIPlqmQz2DqcLWbawUEFPhI8IOPA8y2JuQIF9dWWuQp"
+
+access_token="3633899837-feHjeMHL6aqzYV3RQKfuEqr7g6jXzslSj4GyjzD"
+access_secret="o1Nj5xAoF8p1T0leQDBXSjKcxYkr1CLcgpY91QfHdfgF1"
+
+auth = tweepy.OAuthHandler(consumer_key, 
+consumer_secret)
 #consumer key and secret wil be obtained from twitter developer account
-auth.set_access_token("3633899837-twJK9LSCxPy6bBn5REvNp0M0bNBeIurRwo8qhb8", "JnkAuLKDH2MjlICxhlCYd1DEMCBNStMZ1l1Q9PjeUKIDm")
+auth.set_access_token(access_token, access_secret)
 
 
 api = tweepy.API(auth)
