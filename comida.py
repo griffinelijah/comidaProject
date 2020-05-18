@@ -32,28 +32,44 @@ api = tweepy.API(auth)
 covid19_search = api.search("#COVID19 -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
 covid_search = api.search("#COVID -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
 coronavirus_search = api.search("#coronavirus -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
+stayhome_search = api.search("#stayhome -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
+newskills_search = api.search("#newskills -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
 
 #this will write the results of the search into a separate csv file called according to the search term, more can be added by following the same format for better organization until it's added into a database
 with open('covid19_results.csv', 'w', newline='', encoding='utf-8') as f:
+  csv_writer = csv.writer(f)
+  #this line adds a header corresponding the the search term of the results displayed 
+  csv_writer.writerow('#COVID19'.split(','))
   for tweet in covid19_search:
-      csv_writer = csv.writer(f)
       #this writes a new row for each returned result removing commas
       csv_writer.writerow(tweet.full_text.split(','))
       # print(tweet.full_text)
 
 with open('covid_results.csv', 'w', newline='', encoding='utf-8') as f:
-  for tweet in covid19_search:
-      csv_writer = csv.writer(f)
-      #this writes a new row for each returned result removing commas
+  csv_writer = csv.writer(f)
+  csv_writer.writerow('#COVID'.split(','))
+  for tweet in covid_search:
       csv_writer.writerow(tweet.full_text.split(','))
-      # print(tweet.full_text)
+
 
 with open('coronavirus_results.csv', 'w', newline='', encoding='utf-8') as f:
-  for tweet in covid19_search:
-      csv_writer = csv.writer(f)
-      #this writes a new row for each returned result removing commas
+  csv_writer = csv.writer(f)
+  csv_writer.writerow('#CORONAVIRUS'.split(','))
+  for tweet in coronavirus_search:
       csv_writer.writerow(tweet.full_text.split(','))
-      # print(tweet.full_text)
+
+with open('stay_home_results.csv', 'w', newline='', encoding='utf-8') as f:
+  csv_writer = csv.writer(f)
+  csv_writer.writerow('#stayhome'.split(','))
+  for tweet in stayhome_search:
+      csv_writer.writerow(tweet.full_text.split(','))
+
+with open('newskills_results.csv', 'w', newline='', encoding='utf-8') as f:
+  csv_writer = csv.writer(f)
+  csv_writer.writerow('#newskills'.split(','))
+  for tweet in newskills_search:
+      csv_writer.writerow(tweet.full_text.split(','))
+
 
 
 
