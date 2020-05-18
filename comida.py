@@ -2,11 +2,6 @@ import tweepy
 import os
 import csv
 
-consumer_key=
-consumer_secret=
-
-access_token=
-access_secret=
 
 #lines 4-8 are keys specific to the twitter developer account that are obtained from the twitter for dev portal. for security reasons they were not uploaded to github but can be manually filled in to run the scripts
 
@@ -30,6 +25,8 @@ api = tweepy.API(auth)
 #the lang parameter uses ISO 639-1 two letter codes to restrict language, en is for english
 #tweet mode is set to extended to gather full tweet regardless of character length
 mass_search = api.search("#COVID19 -filter:retweets", lang="en", tweet_mode='extended', count=500)
+mass_search = api.search("#COVID -filter:retweets", lang="en", tweet_mode='extended', count=500)
+mass_search = api.search("#coronavirus -filter:retweets", lang="en", tweet_mode='extended', count=500)
 
 #this will write the results of the search into a csv file called script_results.csv
 with open('script_results.csv', 'w', newline='', encoding='utf-8') as f:
