@@ -2,11 +2,11 @@ import tweepy
 import os
 import csv
 
-consumer_key="l1zfKK3iqXdXGtm1AaXp21Vg3"
-consumer_secret="w5PL9dxaIPlqmQz2DqcLWbawUEFPhI8IOPA8y2JuQIF9dWWuQp"
+consumer_key=
+consumer_secret=
 
-access_token="3633899837-feHjeMHL6aqzYV3RQKfuEqr7g6jXzslSj4GyjzD"
-access_secret="o1Nj5xAoF8p1T0leQDBXSjKcxYkr1CLcgpY91QfHdfgF1"
+access_token=
+access_secret=
 
 #lines 4-8 are keys specific to the twitter developer account that are obtained from the twitter for dev portal. for security reasons they were not uploaded to github but can be manually filled in to run the scripts
 
