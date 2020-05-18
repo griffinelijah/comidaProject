@@ -2,6 +2,11 @@ import tweepy
 import os
 import csv
 
+consumer_key=
+consumer_secret=
+
+access_token=
+access_secret=
 
 #lines 4-8 are keys specific to the twitter developer account that are obtained from the twitter for dev portal. for security reasons they were not uploaded to github but can be manually filled in to run the scripts
 
