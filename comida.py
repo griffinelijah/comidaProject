@@ -29,13 +29,27 @@ api = tweepy.API(auth)
 #the count parameter can be passed through to restrict the amount of search results returned
 #the lang parameter uses ISO 639-1 two letter codes to restrict language, en is for english
 #tweet mode is set to extended to gather full tweet regardless of character length
-mass_search = api.search("#COVID19 -filter:retweets", lang="en", tweet_mode='extended', count=500)
-mass_search = api.search("#COVID -filter:retweets", lang="en", tweet_mode='extended', count=500)
-mass_search = api.search("#coronavirus -filter:retweets", lang="en", tweet_mode='extended', count=500)
+covid19_search = api.search("#COVID19 -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
+covid_search = api.search("#COVID -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
+coronavirus_search = api.search("#coronavirus -filter:retweets -filter:links", lang="en", tweet_mode='extended', count=500)
 
-#this will write the results of the search into a csv file called script_results.csv
-with open('script_results.csv', 'w', newline='', encoding='utf-8') as f:
-  for tweet in mass_search:
+#this will write the results of the search into a separate csv file called according to the search term, more can be added by following the same format for better organization until it's added into a database
+with open('covid19_results.csv', 'w', newline='', encoding='utf-8') as f:
+  for tweet in covid19_search:
+      csv_writer = csv.writer(f)
+      #this writes a new row for each returned result removing commas
+      csv_writer.writerow(tweet.full_text.split(','))
+      # print(tweet.full_text)
+
+with open('covid_results.csv', 'w', newline='', encoding='utf-8') as f:
+  for tweet in covid19_search:
+      csv_writer = csv.writer(f)
+      #this writes a new row for each returned result removing commas
+      csv_writer.writerow(tweet.full_text.split(','))
+      # print(tweet.full_text)
+
+with open('coronavirus_results.csv', 'w', newline='', encoding='utf-8') as f:
+  for tweet in covid19_search:
       csv_writer = csv.writer(f)
       #this writes a new row for each returned result removing commas
       csv_writer.writerow(tweet.full_text.split(','))

@@ -1,3 +1,6 @@
 
 .env.local
 .env.development.local
+coronavirus.results.csv
+covid_results.csv
+covid19_results.csv
